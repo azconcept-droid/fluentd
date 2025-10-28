@@ -6,3 +6,4 @@ crazy logging app
 - [fluentd replace promtail](https://grafana.com/docs/loki/latest/send-data/fluentd/)
 - [fluentd replaces promtail youtube](https://youtu.be/bIAC0uQee0k?si=_GIWVTp4HAUKCWnd)
 - [injest log into loki with fluentd](https://youtu.be/s43IBSVyTpQ)
+- [fluent-plugin-grafana-loki](https://www.rubydoc.info/gems/fluent-plugin-grafana-loki/1.0.2)
