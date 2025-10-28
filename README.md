@@ -1,0 +1,2 @@
+# fluentd
+crazy logging app
