@@ -9,4 +9,4 @@ amazing logging app
 - [fluent-plugin-grafana-loki](https://www.rubydoc.info/gems/fluent-plugin-grafana-loki/1.0.2)
 - [loki fluent-bit doc](https://docs.fluentbit.io/manual/data-pipeline/outputs/loki#fluent-bit.conf)
 - [loki with fluentd/-bit repo](https://github.com/grafana/loki-fundamentals)
-- [loki fluentd repo doc]([https://github.com/grafana/loki-fundamentals](https://github.com/grafana/loki/tree/main/clients/cmd/fluentd))
+- [loki fluentd repo doc](https://github.com/grafana/loki/tree/main/clients/cmd/fluentd)
