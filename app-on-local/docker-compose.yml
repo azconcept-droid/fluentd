@@ -3,13 +3,13 @@ version: '3.8'
 services:
   nestjs-app:
     build:
-      context: ./backend-api
+      context: ./app
       dockerfile: Dockerfile
     container_name: nestjs-app
     ports:
-      - "5003:5003"
+      - "5000:5000"
     environment:
-      - PORT=5003
+      - PORT=5000
     logging:
       driver: fluentd
       options:
