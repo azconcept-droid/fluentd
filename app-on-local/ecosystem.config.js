@@ -1,13 +1,15 @@
 module.exports = {
   apps: [{
     name: 'app',
-    script: './app/app.js', // or your entry file
+    cwd: "app"
+    script: 'npm', // or your entry file
+    args: "run start"
     instances: 1,
     autorestart: true,
     watch: false,
     max_memory_restart: '1G',
     env: {
-      NODE_ENV: 'production',
+      NODE_ENV: 'development',
       PORT: 5005
     },
     // PM2 will write logs to ~/.pm2/logs/
