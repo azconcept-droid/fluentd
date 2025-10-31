@@ -1,27 +1,6 @@
 version: '3.8'
 
 services:
-  nestjs-app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    container_name: nestjs-app
-    ports:
-      - "5000:5000"
-    environment:
-      - PORT=5000
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: localhost:24224
-        tag: nestjs.app
-        fluentd-async: "true"
-    networks:
-      - monitoring
-    restart: unless-stopped
-    depends_on:
-      - fluentd
-
   fluentd:
     build:
       context: ./fluentd
@@ -33,6 +12,7 @@ services:
     volumes:
       - ./fluentd/conf:/fluentd/etc
       - ./fluentd/logs:/fluentd/log
+      - /home/ec2-user/.pm2/logs:/var/log/pm2:ro
     environment:
       - FLUENTD_CONF=fluent.conf
     networks:
