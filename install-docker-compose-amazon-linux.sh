@@ -1,0 +1,39 @@
+# Update the package index
+sudo dnf update -y
+
+# Install Docker
+sudo dnf install docker -y
+
+# Start the Docker service
+sudo systemctl start docker
+
+# Enable Docker to start on boot
+sudo systemctl enable docker
+
+# Add your user to the docker group
+sudo usermod -a -G docker $USER
+
+# Download the latest stable release of Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+# Apply executable permissions
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Verify installation
+docker-compose --version
+
+# Create the CLI plugins directory if it doesn't exist
+mkdir -p ~/.docker/cli-plugins/
+
+# Download the latest buildx binary
+BUILDX_VERSION=$(curl -s https://api.github.com/repos/docker/buildx/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/')
+curl -Lo ~/.docker/cli-plugins/docker-buildx "https://github.com/docker/buildx/releases/download/v${BUILDX_VERSION}/buildx-v${BUILDX_VERSION}.linux-amd64"
+
+# Make it executable
+chmod +x ~/.docker/cli-plugins/docker-buildx
+
+# Verify the installation
+docker buildx version
+
+# Apply the group change
+newgrp docker
